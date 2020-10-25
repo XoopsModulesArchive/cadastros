@@ -1,0 +1,31 @@
+<h4><{$cad_titulo}></h4><br>
+<{$cad_desc}><br><br>
+<table class='outer' cellspacing='1' width='98%'>
+  <tr> 
+    <th align='left'><{$cad_nome}></th>
+    <th align='left'><{$cad_endereco}></th>
+    <th align='left'><{$cad_bairro}></th>
+    <th align='left'><{$cad_contato}></th>
+    <{if $admin == "1"}>
+    <th align='left' nowrap='nowrap'><{$titulo_admin}></th>
+    <{/if}>
+  </tr><!-- Início do Loop na tabela de cadastros -->
+  <{section name=cadastro loop=$cadastros}> 
+  <tr> 
+    <td class='odd' valign='middle' align='left'><b><{$cadastros[cadastro].nome}></b></td>
+    <td class='even' valign='middle' align='center'><{$cadastros[cadastro].endereco}></td>
+    <td class='odd' align='center' valign='middle'><{$cadastros[cadastro].bairro}></td>
+    <td valign='middle' align='center' class='even'><{$cadastros[cadastro].contato}></td>
+<{if $admin == "1"}>
+    <td valign='middle' align='center' class='even'><{$cadastros[cadastro].admin_option}></td>
+    <{/if}>
+  </tr>
+  <{sectionelse}> 
+  <tr> 
+    <td class='even' valign='middle' align='center' colspan='5'><{$cad_semcad}></td>
+  </tr>
+  <{/section}> 
+</table>
+
+<br>
+<{$cad_baixo}>
